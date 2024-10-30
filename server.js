@@ -13,9 +13,10 @@ mongoose.connection.on('connected', () => {
 })
 
 app.use(express.urlencoded({ extended: false }))
-app.use(morgan('dev'))
-app.use(fruitRoute)
 app.use(express.static('public'))
+app.use(morgan('dev'))
+
+app.use(fruitRoute)
 
 app.listen(PORT, () => {
 	console.log(`Server is running on localhost:${PORT}`)

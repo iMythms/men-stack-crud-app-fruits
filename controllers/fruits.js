@@ -25,9 +25,16 @@ const show = async (req, res) => {
 	res.render('fruit/show.ejs', { fruit })
 }
 
+const deleteFruit = async (req, res) => {
+	const id = req.params.id
+	await Fruit.findByIdAndDelete(id)
+	res.redirect('/fruits')
+}
+
 module.exports = {
-	newFruit,
+	new: newFruit,
 	create,
 	index,
 	show,
+	delete: deleteFruit,
 }
