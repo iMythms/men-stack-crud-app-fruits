@@ -22,7 +22,7 @@ const index = async (req, res) => {
 const show = async (req, res) => {
 	const id = req.params.id
 	const fruit = await Fruit.findById(id)
-	res.render('fruit/show.ejs', { fruit })
+	res.render('fruits/show.ejs', { fruit })
 }
 
 const deleteFruit = async (req, res) => {
@@ -31,10 +31,16 @@ const deleteFruit = async (req, res) => {
 	res.redirect('/fruits')
 }
 
+const edit = async (req, res) => {
+	const id = req.params.id
+	const fruit = await Fruit.findById(id)
+	res.render('fruits/edit.ejs', { fruit })
+}
 module.exports = {
 	new: newFruit,
 	create,
 	index,
 	show,
 	delete: deleteFruit,
+	edit,
 }

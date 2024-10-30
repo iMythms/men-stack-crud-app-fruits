@@ -3,15 +3,16 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title><%= fruit.name %></title>
+		<title>Document</title>
 	</head>
 	<body>
-		<h1><%= fruit.name %></h1>
-		<!-- Conditional rendering based on fruit's readiness -->
-		<% if (fruit.isReadyToEat) { %>
-		<p>This fruit is ready to eat!</p>
-		<% } else { %>
-		<p>This fruit is not ready to eat!</p>
-		<% } %>
+		<p><%= fruit._id %></p>
+		<p><%= fruit.name %></p>
+		<p><%= fruit.isReadyToEat %></p>
+		<a href="/fruits/<%=fruit._id%>/edit">Edit Fruit</a>
+		<form action="/fruits/<%=fruit._id%>?_method=DELETE" method="POST">
+			<button type="submit">Delete <%= fruit.name %></button>
+		</form>
+		<a href="/fruits/">Back to Fruits</a>
 	</body>
 </html>
